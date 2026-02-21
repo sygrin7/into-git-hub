@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Git Basics — Quick Reference</title>
+    <style>
+      body {
+        font-family:
+          Segoe UI,
+          Arial,
+          Helvetica,
+          sans-serif;
+        line-height: 1.6;
+        margin: 32px;
+      }
+      pre {
+        background: #f6f8fa;
+        padding: 12px;
+        border-radius: 6px;
+        overflow: auto;
+      }
+      h1,
+      h2 {
+        color: #111;
+      }
+      .cmd {
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Git Basics — Quick Reference</h1>
+    <p>
+      This page lists common Git commands with short explanations and examples.
+      Use it as a quick reminder while working in this repository.
+    </p>
+
+    <h2>Repository & setup</h2>
+    <pre><code class="cmd">git init</code></pre>
+    <p>Create a new repository in the current folder.</p>
+
+    <pre><code class="cmd">git clone &lt;url&gt;</code></pre>
+    <p>Copy a remote repository locally.</p>
+
+    <h2>Working with changes</h2>
+    <pre><code class="cmd">git status
+git add file.txt
+git commit -m "Short descriptive message"</code></pre>
+    <p>Check status, stage changes, and commit them.</p>
+
+    <h2>Branches</h2>
+    <pre><code class="cmd">git branch             # list branches
+git branch feature-x   # create new branch
+git checkout feature-x # switch to branch
+git switch -c feature-x # create and switch (newer syntax)</code></pre>
+
+    <h2>Syncing with remotes</h2>
+    <pre><code class="cmd">git fetch origin
+git pull origin main   # fetch + merge from remote main
+git push origin feature-x</code></pre>
+
+    <h2>Merging & Rebasing</h2>
+    <pre><code class="cmd">git checkout main
+git merge feature-x
+# or
+git checkout feature-x
+git rebase main</code></pre>
+    <p>
+      Use merge to combine branches, rebase to replay commits onto another base.
+    </p>
+
+    <h2>History & inspection</h2>
+    <pre><code class="cmd">git log --oneline --graph --decorate
+git diff               # show unstaged changes
+git show HEAD          # show last commit</code></pre>
+
+    <h2>Undoing changes</h2>
+    <pre><code class="cmd">git restore file.txt        # discard unstaged changes
+git restore --staged file.txt # unstage a file
+git reset --hard HEAD~1     # reset to previous commit (destructive)</code></pre>
+
+    <h2>Stashing</h2>
+    <pre><code class="cmd">git stash          # save working state
+git stash pop      # re-apply saved state</code></pre>
+
+    <h2>Remotes</h2>
+    <pre><code class="cmd">git remote -v
+git remote add origin &lt;url&gt;</code></pre>
+
+    <h2>Tips for this repo</h2>
+    <ul>
+      <li>
+        Run <span class="cmd">git status</span> before editing to see
+        uncommitted work.
+      </li>
+      <li>Make small, focused commits and use descriptive messages.</li>
+      <li>
+        Open a PR for larger changes and reference this repository's docs (e.g.,
+        <code>README.md</code>).
+      </li>
+    </ul>
+
+    <footer>
+      <p>
+        Generated as a quick local helper. Edit this file if you want
+        additional, repo-specific commands.
+      </p>
+    </footer>
+  </body>
+</html>
